@@ -1,12 +1,24 @@
 
 type ButtonProps = {
-  label: string;
+  text: string;
+  onClick: () => void;
+  variant?: "primary" | "secondary" | "danger";
+  disabled?: boolean;
 };
 
-function Button({ label }: ButtonProps) {
+function Button({
+  text,
+  onClick,
+  variant = "primary",
+  disabled = false,
+}: ButtonProps) {
   return (
-    <button>
-      {label}
+    <button
+      className={`btn btn-${variant}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {text}
     </button>
   );
 }
